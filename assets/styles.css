@@ -1,0 +1,87 @@
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #10131a;
+    color: #f1f5f9;
+  }
+  body {
+    overscroll-behavior: none;
+  }
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Custom sleek dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0e14;
+}
+::-webkit-scrollbar-thumb {
+  background: #272a31;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2d8eff;
+}
+
+/* Drag and Drop active visual states */
+.drop-zone-active {
+  border-color: #2d8eff !important;
+  background-color: rgba(45, 142, 255, 0.12) !important;
+  box-shadow: 0 0 28px rgba(45, 142, 255, 0.25) !important;
+  transform: scale(1.005);
+}
+
+.tree-drop-target {
+  transition: all 0.15s ease;
+}
+.tree-drop-target.drag-over-folder {
+  background-color: rgba(45, 142, 255, 0.22) !important;
+  border-color: #2d8eff !important;
+  box-shadow: 0 0 14px rgba(45, 142, 255, 0.35);
+  transform: translateX(3px);
+}
+
+.doc-card-draggable {
+  cursor: grab;
+}
+.doc-card-draggable:active {
+  cursor: grabbing;
+}
+.doc-card-dragging {
+  opacity: 0.45;
+  border-color: #2d8eff !important;
+  transform: scale(0.985);
+}
+
+/* Terminal line entry animation */
+@keyframes terminalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.terminal-line-anim {
+  animation: terminalFadeIn 0.2s ease-out forwards;
+}
+
+/* Modal backdrop transition */
+.modal-backdrop-enter {
+  animation: fadeInBackdrop 0.18s ease-out forwards;
+}
+@keyframes fadeInBackdrop {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

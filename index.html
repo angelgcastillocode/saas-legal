@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="shell-type" content="web_dashboard" />
+  <title>SaaS Legal — The Sovereign Vault v2.4 AI (Importador Zero-Touch)</title>
+
+  <!-- Google Fonts: Inter & JetBrains Mono + Material Symbols Outlined -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN with Stitch Fidelity Dark Design System Configuration -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed-dim": "#aac7ff",
+            "primary-container": "#1978e5",
+            "inverse-surface": "#e0e2eb",
+            "surface-dim": "#10131a",
+            "primary": "#2d8eff",
+            "on-tertiary-fixed-variant": "#763400",
+            "on-secondary-fixed-variant": "#2d476f",
+            "on-secondary-container": "#9db6e4",
+            "on-surface-variant": "#94a3b8",
+            "surface-container-low": "#181c22",
+            "secondary-container": "rgba(16,185,129,0.15)",
+            "inverse-on-surface": "#2d3037",
+            "tertiary-container": "#e3711f",
+            "on-error": "#690005",
+            "on-background": "#f1f5f9",
+            "surface-bright": "#363940",
+            "error": "#ff6b6b",
+            "outline-variant": "rgba(255,255,255,0.08)",
+            "background": "#10131a",
+            "surface-container-lowest": "#0b0e14",
+            "surface-container-high": "#272a31",
+            "on-primary-fixed": "#001b3e",
+            "on-error-container": "#ffdad6",
+            "secondary-fixed": "#38bdf8",
+            "secondary-fixed-dim": "#10b981",
+            "error-container": "rgba(239, 68, 68, 0.15)",
+            "on-tertiary-container": "#481d00",
+            "secondary": "#10b981",
+            "on-primary-container": "#ffffff",
+            "tertiary": "#ffb68c",
+            "surface": "#10131a",
+            "inverse-primary": "#005db8",
+            "surface-container-highest": "#282d38",
+            "on-tertiary": "#532200",
+            "on-surface": "#f1f5f9",
+            "on-primary-fixed-variant": "#00458d",
+            "primary-fixed": "#1e3a5f",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb68c",
+            "on-tertiary-fixed": "#321200",
+            "outline": "#64748b",
+            "on-secondary-fixed": "#001b3d",
+            "surface-container": "#1c2026",
+            "tertiary-fixed": "#ffdbc9",
+            "surface-variant": "#1e222b",
+            "on-secondary": "#143057",
+            "surface-tint": "#2d8eff"
+          },
+          spacing: {
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem"
+          },
+          fontFamily: {
+            "sans": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "label-sm": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "headline-sm": ["Inter", "sans-serif"],
+            "headline-md": ["Inter", "sans-serif"],
+            "headline-lg": ["Inter", "sans-serif"],
+            "headline-xl": ["Inter", "sans-serif"],
+            "mono-code": ["JetBrains Mono", "monospace"]
+          },
+          fontSize: {
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "label-md": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "headline-xl": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="./assets/styles.css" />
+
+  <!-- Client-Side Document Parsing Libraries (PDF.js & Mammoth.js for DOCX) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js" defer></script>
+</head>
+
+<body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary/30 selection:text-white">
+
+  <!-- =================================================================== -->
+  <!-- PANTALLA COMPLETA DE AUTENTICACIÓN Y REGISTRO (Plantilla de Login)  -->
+  <!-- =================================================================== -->
+  <div id="auth-screen-container" class="hidden w-full min-h-screen"></div>
+
+  <!-- =================================================================== -->
+  <!-- SHELL PRINCIPAL DE LA APLICACIÓN (Sidebar + Header + Vistas SPA)    -->
+  <!-- =================================================================== -->
+  <div id="app-shell-container">
+    <!-- LEFT SIDEBAR (Fidelity Dark Design System) -->
+    <aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest text-on-surface z-50 flex flex-col justify-between border-r border-outline-variant shadow-xl">
+      <div class="flex flex-col flex-1">
+        <!-- Brand Header -->
+        <div class="h-16 px-6 flex items-center justify-between border-b border-outline-variant">
+          <div class="flex items-center gap-3 cursor-pointer" data-nav-route="dashboard">
+            <img
+              alt="SaaS Legal Logo"
+              class="h-8 w-auto object-contain brightness-110"
+              src="https://lh3.googleusercontent.com/aida/AEtjO1U7SrAbta4uQXzzVNvyBXyMg9JJBTIbRBq1ZhOlHk2rCPqNkoU7oXXpoCp4s9yn9VvUrUGAoTIFF7w5uck2_JnZf_gGX7-l3RJHeToOWvnRNsKVS2eH3m_AdEuG480P8OE1_CPY0p7wHXdFM5ezbOEbBi3lY9si2FppZDmgzWyYCqpgkl-j4-n1Brql7hN68B5VBFcVFKWnCtxgjce8q2uJycKPTw13YfTPvp-3amTo"
+            />
+            <span class="font-semibold text-lg tracking-tight text-white font-sans">SaaS Legal</span>
+          </div>
+          <span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-mono-code text-xs border border-primary/20">v2.4 AI</span>
+        </div>
+
+        <!-- Primary CTA: Importador Masivo Zero-Touch -->
+        <div class="px-5 py-4">
+          <button
+            data-nav-route="importador"
+            class="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-primary-container text-white rounded-xl text-sm font-semibold shadow-[0_0_20px_rgba(25,120,229,0.35)] hover:bg-primary transition-all duration-200"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-lg">bolt</span>
+            <span>Importar Masivo</span>
+            <span class="px-2 py-0.5 bg-white/20 text-white text-[11px] rounded-full font-medium">Zero-Touch</span>
+          </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="flex-1 px-3 py-2 flex flex-col gap-1">
+          <a data-nav-route="dashboard" aria-current="page" class="flex items-center gap-3 px-4 py-2.5 transition-all bg-primary/15 text-primary font-semibold rounded-xl border border-primary/20" href="#dashboard">
+            <span class="material-symbols-outlined text-xl">dashboard</span>
+            <span class="text-sm">Dashboard</span>
+          </a>
+          <a data-nav-route="clientes" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-white transition-all" href="#clientes">
+            <span class="material-symbols-outlined text-xl">group</span>
+            <span class="text-sm">Clientes</span>
+          </a>
+          <a data-nav-route="expedientes" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-white transition-all" href="#expedientes">
+            <span class="material-symbols-outlined text-xl">folder_open</span>
+            <span class="text-sm">Expedientes</span>
+          </a>
+          <a data-nav-route="documentos" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-white transition-all" href="#documentos">
+            <span class="material-symbols-outlined text-xl">description</span>
+            <span class="text-sm">Documentos (Repositorio)</span>
+          </a>
+          <a data-nav-route="audiencias" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-white transition-all" href="#audiencias">
+            <span class="material-symbols-outlined text-xl">gavel</span>
+            <span class="text-sm">Audiencias</span>
+          </a>
+          <a data-nav-route="ajustes" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-white transition-all mt-2 border-t border-outline-variant pt-3" href="#ajustes">
+            <span class="material-symbols-outlined text-xl">tune</span>
+            <span class="text-sm">Ajustes IA &amp; API Key</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Bottom AI Ingestion Telemetry Widget + Logout Button -->
+      <div class="p-4 border-t border-outline-variant space-y-2.5">
+        <div class="rounded-xl bg-surface-container-low p-3.5 border border-outline-variant">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs text-on-surface-variant uppercase tracking-wider font-medium">Ingesta IA</span>
+            <span id="sidebar-quota-pct" class="font-mono-code text-xs text-secondary font-semibold">84.5%</span>
+          </div>
+          <div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mb-2">
+            <div id="sidebar-quota-bar" class="bg-primary h-full rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(45,142,255,0.6)]" style="width: 84.5%;"></div>
+          </div>
+          <p id="sidebar-quota-text" class="font-mono-code text-[11px] text-on-surface-variant">84.5k / 100k este mes</p>
+        </div>
+
+        <button
+          id="sidebar-logout-btn"
+          type="button"
+          class="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-surface-container-low hover:bg-error/15 text-on-surface-variant hover:text-error border border-outline-variant hover:border-error/30 text-xs font-semibold transition-all"
+        >
+          <span class="material-symbols-outlined text-base">logout</span>
+          <span>Cerrar Sesión / Ver Login</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT SHELL -->
+    <div class="pl-72 min-h-screen bg-background">
+      <!-- TOP HEADER -->
+      <header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/85 backdrop-blur-xl z-40 flex items-center justify-between px-8 border-b border-outline-variant">
+        <div class="flex items-center gap-4 flex-1 max-w-xl">
+          <div class="relative w-full">
+            <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">search</span>
+            <input
+              id="header-global-search"
+              class="w-full h-10 pl-10 pr-4 bg-surface-container-low border border-outline-variant text-on-surface placeholder:text-outline text-sm rounded-xl focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+              placeholder="Buscar expediente, cliente o archivo normalizado (Cmd + K)"
+              type="text"
+            />
+          </div>
+          <div class="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium whitespace-nowrap">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>OCR &amp; NLP Activo • 99.8%</span>
+          </div>
+        </div>
+
+        <!-- Right Header Controls: Live Role Switcher, Notifications & Profile -->
+        <div class="flex items-center gap-3">
+          <!-- Selector de Rol Demo en Vivo -->
+          <div class="hidden lg:flex items-center gap-1.5 bg-surface-container-low border border-outline-variant rounded-xl px-2.5 py-1">
+            <span class="material-symbols-outlined text-primary text-sm">badge</span>
+            <select id="header-role-switcher" class="bg-transparent text-xs text-white font-medium focus:outline-none cursor-pointer pr-5 py-0.5" title="Alternar rol de demostración en vivo">
+              <option class="bg-surface-container text-white" value="role-partner">Rol: Socia Directora (Dra. Elena)</option>
+              <option class="bg-surface-container text-white" value="role-litigator">Rol: Abogado Litigante (Lic. Roberto)</option>
+              <option class="bg-surface-container text-white" value="role-paralegal">Rol: Paralegal IA (Lic. Sofía)</option>
+            </select>
+          </div>
+
+          <button id="header-notifications-btn" class="relative p-2 rounded-xl text-on-surface-variant hover:text-white hover:bg-surface-container-low border border-transparent hover:border-outline-variant transition-all" title="Alertas de Término Fatal" type="button">
+            <span class="material-symbols-outlined text-xl">notifications</span>
+            <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full ring-2 ring-surface-container-lowest"></span>
+          </button>
+
+          <button id="header-login-modal-btn" type="button" class="flex items-center gap-3 pl-2 hover:bg-surface-container-low p-1.5 rounded-xl border border-transparent hover:border-outline-variant transition-all" title="Ir a Pantalla de Login / Cambiar Cuenta">
+            <img
+              id="header-user-avatar"
+              alt="Profile"
+              class="w-8 h-8 rounded-full object-cover ring-2 ring-outline-variant"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtu2XNiRZEmiRhO2qCuVzuQL_bYnDQrytTZzZP1DTbHkEua0PyjURYjQ3a7lxMOj9vEsHcCGEP0nCXTKWL12ozkZeeWpWlWYKUwNQo94RhmdtUgyxeHX4HP36_UgV60MtUbgQ1QiQmLQqmzW_sJCkYtr9vdUNQgdcSMpJ0ew3vUiEQzGK6EWeBcFHcVCasfHQLViXBifmuC9BAdBvDa1Y-gDPcig2ROhNxZbEKZ2o"
+            />
+            <div class="hidden md:flex flex-col text-left leading-tight">
+              <span id="header-user-name" class="text-sm font-semibold text-white">Dra. Elena Valdés</span>
+              <span id="header-user-role" class="text-xs text-on-surface-variant">Socia Directora Legal Tech</span>
+            </div>
+          </button>
+        </div>
+      </header>
+
+      <!-- DYNAMIC SPA MAIN VIEWPORT -->
+      <main id="spa-main-container" class="relative pt-20 w-full px-8 pb-12 bg-background min-h-screen"></main>
+    </div>
+  </div>
+
+  <!-- GLOBAL MODAL ROOT (Visor Web Integrado, Reclasificación y Cmd+K) -->
+  <div id="global-modal-root"></div>
+
+  <!-- Application Entry Point (ES Modules) -->
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "primary-fixed-dim": "#aac7ff",
+        "primary-container": "#1978e5",
+        "inverse-surface": "#e0e2eb",
+        "surface-dim": "#10131a",
+        "primary": "#2d8eff",
+        "on-tertiary-fixed-variant": "#763400",
+        "on-secondary-fixed-variant": "#2d476f",
+        "on-secondary-container": "#9db6e4",
+        "on-surface-variant": "#94a3b8",
+        "surface-container-low": "#181c22",
+        "secondary-container": "#1e293b",
+        "inverse-on-surface": "#2d3037",
+        "tertiary-container": "#e3711f",
+        "on-error": "#690005",
+        "on-background": "#f8fafc",
+        "surface-bright": "#363940",
+        "error": "#ff6b6b",
+        "outline-variant": "rgba(255, 255, 255, 0.08)",
+        "background": "#10131a",
+        "surface-container-lowest": "#0b0e14",
+        "surface-container-high": "#222733",
+        "on-primary-fixed": "#001b3e",
+        "on-error-container": "#ffdad6",
+        "secondary-fixed": "#38bdf8",
+        "secondary-fixed-dim": "#34d399",
+        "error-container": "#3f1418",
+        "on-tertiary-container": "#481d00",
+        "secondary": "#34d399",
+        "on-primary-container": "#ffffff",
+        "tertiary": "#ffb68c",
+        "surface": "#10131a",
+        "inverse-primary": "#005db8",
+        "surface-container-highest": "#282c37",
+        "on-tertiary": "#532200",
+        "on-surface": "#f8fafc",
+        "on-primary-fixed-variant": "#00458d",
+        "primary-fixed": "#d6e3ff",
+        "on-primary": "#ffffff",
+        "tertiary-fixed-dim": "#ffb68c",
+        "on-tertiary-fixed": "#321200",
+        "outline": "#64748b",
+        "on-secondary-fixed": "#001b3d",
+        "surface-container": "#181c22",
+        "tertiary-fixed": "#ffdbc9",
+        "surface-variant": "#1e222b",
+        "on-secondary": "#143057",
+        "surface-tint": "#2d8eff"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.5rem",
+        "lg": "0.75rem",
+        "xl": "1rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "margin": "1.5rem",
+        "space-sm": "0.5rem",
+        "gutter": "1rem",
+        "space-lg": "1.5rem",
+        "space-md": "1rem",
+        "space-xs": "0.25rem",
+        "space-xl": "2rem"
+      },
+      "fontFamily": {
+        "sans": ["Inter", "sans-serif"],
+        "body-md": ["Inter", "sans-serif"],
+        "label-md": ["Inter", "sans-serif"],
+        "label-sm": ["Inter", "sans-serif"],
+        "headline-sm": ["Inter", "sans-serif"],
+        "headline-md": ["Inter", "sans-serif"],
+        "headline-lg": ["Inter", "sans-serif"],
+        "headline-xl": ["Inter", "sans-serif"],
+        "mono-code": ["JetBrains Mono", "monospace"]
+      },
+      "fontSize": {
+        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+        "label-md": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+        "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+        "body-md": ["14px", {"lineHeight": "22px", "fontWeight": "400"}],
+        "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+        "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+        "headline-xl": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+      }
+    }
+  }
+};</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary/30 selection:text-white"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest text-on-surface z-50 flex flex-col justify-between border-r border-white/10 shadow-2xl"><div class="flex flex-col flex-1"><div class="h-16 px-space-md flex items-center justify-between border-b border-white/5"><div class="flex items-center gap-space-sm"><img alt="SaaS Legal Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U7SrAbta4uQXzzVNvyBXyMg9JJBTIbRBq1ZhOlHk2rCPqNkoU7oXXpoCp4s9yn9VvUrUGAoTIFF7w5uck2_JnZf_gGX7-l3RJHeToOWvnRNsKVS2eH3m_AdEuG480P8OE1_CPY0p7wHXdFM5ezbOEbBi3lY9si2FppZDmgzWyYCqpgkl-j4-n1Brql7hN68B5VBFcVFKWnCtxgjce8q2uJycKPTw13YfTPvp-3amTo"/><span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-white">SaaS Legal</span></div><span class="px-space-xs py-0.5 rounded-full bg-white/10 text-on-surface-variant font-mono-code text-label-sm border border-white/10">v2.4 AI</span></div><div class="px-space-md py-space-sm"><button class="w-full flex items-center justify-center gap-space-sm px-space-md py-2.5 bg-primary-container text-white rounded-lg font-label-md text-label-md shadow-[0_0_20px_rgba(25,120,229,0.35)] hover:bg-primary transition-all border border-primary/40" type="button"><span class="material-symbols-outlined text-base">bolt</span><span>Importar Masivo</span><span class="px-1.5 py-0.2 bg-white/20 text-white text-label-sm rounded-full font-label-sm">Zero-Touch</span></button></div><nav class="flex-1 px-space-md py-space-sm flex flex-col gap-space-xs" data-active-classes="bg-white/10 text-white font-semibold rounded-lg"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 transition-all bg-white/10 text-white font-semibold rounded-lg border border-white/5 shadow-sm" data-path="dashboard" href="#"><span class="material-symbols-outlined text-lg text-primary">dashboard</span><span class="font-label-md text-label-md">Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-white transition-all" data-path="clientes" href="#"><span class="material-symbols-outlined text-lg">group</span><span class="font-label-md text-label-md">Clientes</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-white transition-all" data-path="expedientes" href="#"><span class="material-symbols-outlined text-lg">folder_open</span><span class="font-label-md text-label-md">Expedientes</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-white transition-all" data-path="documentos" href="#"><span class="material-symbols-outlined text-lg">description</span><span class="font-label-md text-label-md">Documentos</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-white transition-all" data-path="audiencias" href="#"><span class="material-symbols-outlined text-lg">gavel</span><span class="font-label-md text-label-md">Audiencias</span></a></nav></div><div class="p-space-md"><div class="rounded-xl bg-surface-container-low border border-white/10 p-space-md"><div class="flex items-center justify-between mb-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wide">Ingesta IA</span><span class="font-mono-code text-label-sm text-primary font-semibold">84.5%</span></div><div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden mb-space-xs"><div class="bg-primary h-full rounded-full shadow-[0_0_8px_rgba(45,142,255,0.7)]" style="width: 84.5%;"></div></div><p class="font-mono-code text-label-sm text-on-surface-variant">84.5k / 100k este mes</p></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-dim/85 backdrop-blur-xl z-40 flex items-center justify-between px-space-lg border-b border-white/10 shadow-sm"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline text-lg">search</span><input class="w-full h-10 pl-10 pr-space-md bg-surface-variant text-on-surface placeholder:text-outline text-body-md font-body-md rounded-lg border border-white/10 shadow-inner focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary" placeholder="Buscar expediente, cliente o término legal (Cmd + K)" type="text"/></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-label-sm text-label-sm whitespace-nowrap"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span><span>OCR &amp; NLP Activo • 99.8%</span></div></div><div class="flex items-center gap-space-md"><button class="relative p-space-sm rounded-lg text-on-surface-variant hover:text-white hover:bg-white/5 transition-all" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full ring-2 ring-surface"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-white/15" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtu2XNiRZEmiRhO2qCuVzuQL_bYnDQrytTZzZP1DTbHkEua0PyjURYjQ3a7lxMOj9vEsHcCGEP0nCXTKWL12ozkZeeWpWlWYKUwNQo94RhmdtUgyxeHX4HP36_UgV60MtUbgQ1QiQmLQqmzW_sJCkYtr9vdUNQgdcSMpJ0ew3vUiEQzGK6EWeBcFHcVCasfHQLViXBifmuC9BAdBvDa1Y-gDPcig2ROhNxZbEKZ2o"/><div class="hidden md:flex flex-col text-left leading-tight"><span class="font-label-md text-label-md text-white font-medium">Dra. Elena Valdés</span><span class="font-label-sm text-label-sm text-on-surface-variant">Socia Directora Legal Tech</span></div></div></div></header><main class="relative pt-16 w-full px-space-lg pb-space-xl bg-background"><div class="flex flex-col w-full">
+<!-- Content Header Area -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg mb-space-xl mt-6">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex items-center gap-space-sm mb-1">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono-code text-label-sm uppercase tracking-wide">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+          Daemon v4.2 Activo
+        </span>
+<span class="font-mono-code text-body-sm text-outline">LATENCIA RED: 28ms</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-white font-semibold tracking-tight">
+        Motor de Ingesta Inteligente “Zero-Touch”
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Carga masiva de documentación judicial y corporativa. La IA extrae metadatos, clasifica tipos de trámite, identifica partes y vincula automáticamente a expedientes en segundos.
+      </p>
+</div>
+<!-- Action Toolbar -->
+<div class="flex flex-wrap items-center gap-space-sm self-start lg:self-auto">
+<!-- Pipeline Model Selector -->
+<div class="relative inline-flex items-center bg-surface-variant border border-white/10 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary ml-3 text-lg">psychology</span>
+<select class="appearance-none bg-transparent pl-2 pr-9 py-2 font-label-md text-label-md text-white focus:outline-none cursor-pointer">
+<option class="bg-surface-variant text-white">Modelo: Legal-LLM Jurisprudencia v4</option>
+<option class="bg-surface-variant text-white">Modelo: Compliance Mercantil &amp; M&amp;A v3.8</option>
+<option class="bg-surface-variant text-white">Modelo: Litigio Administrativo RAG-Turbo</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 pointer-events-none text-outline text-base">expand_more</span>
+</div>
+<button class="inline-flex items-center gap-space-xs px-3.5 py-2 bg-surface-variant text-white hover:bg-surface-container-highest border border-white/10 rounded-lg font-label-md text-label-md shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-base text-outline">tune</span>
+<span>Configuración</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-3.5 py-2 bg-surface-variant text-white hover:bg-surface-container-highest border border-white/10 rounded-lg font-label-md text-label-md shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-base text-outline">history</span>
+<span>Historial Lotes</span>
+</button>
+</div>
+</div>
+<!-- Primary Workstation Grid: Ingestion Zone + Real-time Telemetry Card -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg mb-space-xl">
+<!-- Massive Drop Zone (8 Cols) -->
+<div class="xl:col-span-8 flex flex-col">
+<div class="relative group bg-surface-variant border border-white/10 rounded-xl p-space-xl shadow-lg flex flex-col justify-between overflow-hidden">
+<!-- Ambient Decorative Glow -->
+<div class="absolute -top-24 -right-24 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none group-hover:bg-primary/20 transition-colors"></div>
+<div class="absolute -bottom-20 -left-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Upper Drop Target Area -->
+<div class="relative rounded-lg bg-surface-container-lowest/80 border border-dashed border-white/15 hover:border-primary/50 hover:bg-surface-container-low/90 p-space-xl text-center flex flex-col items-center justify-center transition-all cursor-pointer">
+<!-- Animated AI Upload Icon -->
+<div class="relative w-20 h-20 rounded-2xl bg-surface-container-high border border-white/10 shadow-inner flex items-center justify-center mb-space-md group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-4xl text-primary">cloud_upload</span>
+<span class="material-symbols-outlined text-lg text-secondary-fixed absolute -top-1.5 -right-1.5 bg-surface-container-lowest border border-white/10 text-cyan-400 p-1 rounded-full shadow-sm">auto_awesome</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-white font-semibold mb-space-xs">
+            Arrastra y suelta expedientes o carpetas completas aquí
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mb-space-lg">
+            Soporta hasta 250 archivos por lote simultáneamente. Formatos admitidos: PDF, DOCX, PNG, JPG, TIFF, ZIP (máx. 150 MB por archivo).
+          </p>
+<!-- Badges -->
+<div class="flex flex-wrap items-center justify-center gap-space-xs mb-space-lg">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-on-surface-variant font-mono-code text-label-sm">
+<span class="material-symbols-outlined text-sm text-red-400">picture_as_pdf</span> PDF con OCR Multi-capa
+            </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-on-surface-variant font-mono-code text-label-sm">
+<span class="material-symbols-outlined text-sm text-primary">article</span> DOCX / Modelos Contratados
+            </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-on-surface-variant font-mono-code text-label-sm">
+<span class="material-symbols-outlined text-sm text-emerald-400">image</span> Fojas Digitalizadas / TIFF
+            </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-on-surface-variant font-mono-code text-label-sm">
+<span class="material-symbols-outlined text-sm text-amber-400">folder_zip</span> Archivos Masivos ZIP
+            </span>
+</div>
+<!-- Buttons -->
+<div class="flex flex-wrap items-center justify-center gap-space-sm">
+<button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary-container hover:bg-primary text-white font-label-md text-label-md shadow-lg shadow-primary/20 border border-primary/40 transition-all" type="button">
+<span class="material-symbols-outlined text-base">upload_file</span>
+<span>Explorar Archivos Locales</span>
+</button>
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-white border border-white/10 font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-base text-primary">cloud_sync</span>
+<span>Conectar Google Drive / SharePoint</span>
+</button>
+</div>
+</div>
+<!-- Instant Heuristics Checklist -->
+<div class="mt-space-lg pt-space-md flex flex-wrap items-center justify-between gap-space-md text-on-surface-variant">
+<label class="flex items-center gap-space-xs cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-primary bg-surface-container-lowest border-white/20 focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">Auto-clasificar y crear expediente si no existe en base central</span>
+</label>
+<label class="flex items-center gap-space-xs cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-primary bg-surface-container-lowest border-white/20 focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">Redactar PII y datos sensibles automáticamente (GDPR / LOPD)</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Upload Status & Telemetry Metrics Card (4 Cols) -->
+<div class="xl:col-span-4 flex flex-col">
+<div class="bg-surface-variant border border-white/10 rounded-xl p-space-lg shadow-lg flex flex-col justify-between h-full">
+<div>
+<!-- Header Status -->
+<div class="flex items-center justify-between pb-space-md border-b border-white/10">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+<span class="material-symbols-outlined text-lg">task_alt</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-white">Lote de Ingesta #892</h3>
+<span class="font-mono-code text-body-sm text-emerald-400 font-medium">Completado • Sin Incidencias</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-mono-code text-label-sm font-semibold">
+              100% OK
+            </span>
+</div>
+<!-- Progress Bar & Count -->
+<div class="space-y-2 my-space-md">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-white">Progreso del Pipeline</span>
+<span class="font-mono-code text-white font-semibold">5 / 5 archivos procesados</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-2.5 rounded-full overflow-hidden border border-white/5">
+<div class="bg-emerald-400 h-full rounded-full transition-all duration-1000 shadow-[0_0_8px_rgba(52,211,153,0.6)]" style="width: 100%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-outline">5 éxitos, 0 fallos estructurales detectados</p>
+</div>
+<!-- Metrics Bento Grid -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="p-space-md rounded-lg bg-surface-container-lowest border border-white/5 flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Tiempo de Ingesta</span>
+<span class="font-headline-lg text-headline-lg font-mono-code text-primary font-bold">3.4s</span>
+<span class="font-mono-code text-body-sm text-outline mt-0.5">0.68s prom/archivo</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-lowest border border-white/5 flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Tokens Consumidos</span>
+<span class="font-headline-lg text-headline-lg font-mono-code text-white font-bold">4,120</span>
+<span class="font-mono-code text-body-sm text-outline mt-0.5">Embedding text-004</span>
+</div>
+<div class="col-span-2 p-space-md rounded-lg bg-surface-container-lowest border border-white/5 flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Precisión Global IA</span>
+<span class="font-headline-md text-headline-md font-mono-code text-emerald-400 font-bold">98.6%</span>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center gap-1 font-mono-code text-label-sm text-emerald-300 bg-emerald-500/15 border border-emerald-500/25 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-xs">verified</span> Certificado
+                </span>
+<span class="block font-mono-code text-body-sm text-outline mt-0.5">Hash SHA-256 Validado</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Controls -->
+<div class="pt-space-lg flex flex-col sm:flex-row gap-space-sm border-t border-white/10 mt-auto">
+<button class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg bg-primary-container hover:bg-primary text-white font-label-md text-label-md shadow-md shadow-primary/20 border border-primary/40 transition-all" type="button">
+<span class="material-symbols-outlined text-base">add_circle</span>
+<span>Procesar Más Archivos</span>
+</button>
+<button class="inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg bg-surface-container-high hover:bg-surface-container-highest border border-white/10 text-white font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-base text-outline">download</span>
+<span>Reporte CSV</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Dark Terminal / Console Log: 'Consola de Importación' -->
+<div class="w-full mb-space-xl">
+<div class="rounded-xl overflow-hidden bg-surface-container-lowest border border-white/10 shadow-2xl text-on-surface">
+<!-- Terminal Window Bar -->
+<div class="bg-surface-container-low px-space-md py-3 flex items-center justify-between border-b border-white/10">
+<div class="flex items-center gap-space-sm">
+<!-- OS Dots -->
+<div class="flex items-center gap-1.5 mr-space-md">
+<span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+<span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+<span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+</div>
+<span class="font-mono-code text-body-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">terminal</span>
+            saas-legal@extractor-daemon: ~ /var/log/ingesta-zero-touch.log
+          </span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="p-1 rounded text-on-surface-variant hover:text-white hover:bg-white/10 transition-colors" title="Filtrar por Advertencias" type="button">
+<span class="material-symbols-outlined text-base">filter_alt</span>
+</button>
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-on-surface-variant hover:text-white hover:bg-white/10 font-mono-code text-label-sm transition-all" id="copy-btn" onclick="navigator.clipboard?.writeText(document.getElementById('console-log').innerText); const icon = this.querySelector('span'); icon.textContent='done'; setTimeout(()=&gt;icon.textContent='content_copy', 1500);" type="button">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+<span>Copiar Log</span>
+</button>
+</div>
+</div>
+<!-- Terminal Body Content -->
+<div class="p-space-md md:p-space-lg font-mono-code text-mono-code space-y-2 max-h-[380px] overflow-y-auto leading-relaxed bg-[#070a0f]" id="console-log">
+<!-- Connection logs -->
+<div class="text-[#38bdf8]">
+<span class="text-white/40">[16:23:13]</span> Conectando a IA de extracción y motor OCR multicanal...
+        </div>
+<div class="text-[#818cf8]">
+<span class="text-white/40">[16:23:14]</span> Pipeline inicializado. Analizando embeddings semánticos y firmas de token...
+        </div>
+<!-- Success 1 -->
+<div class="pt-1">
+<div class="text-[#34d399] font-medium flex items-center gap-1.5">
+<span class="text-white/40">[16:23:15]</span>
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>[OK] Actividad03-1RA EVA-FBD-ISC.pdf (14.2 MB)</span>
+</div>
+<div class="pl-7 space-y-0.5 text-on-surface-variant">
+<div>├── Cliente identificado: <span class="text-white font-medium">TechCorp Iberoamérica S.A.</span> (ID: <span class="text-primary">CLI-9402</span>)</div>
+<div>├── Expediente vinculado: <span class="text-cyan-400">EXP-2024-8841-CIV</span> (Juzgado 3ro Civil de Cuantía Mayor)</div>
+<div>├── Tipo de documento detectado: <span class="text-white">Escrito Inicial de Demanda Mercantil</span></div>
+<div>└── Nivel de confianza IA: <span class="text-[#34d399] font-semibold">99.4%</span> (Extracción verificada sin anomalías)</div>
+</div>
+</div>
+<!-- Success 2 -->
+<div class="pt-1">
+<div class="text-[#34d399] font-medium flex items-center gap-1.5">
+<span class="text-white/40">[16:23:16]</span>
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>[OK] Contrato_Prestacion_Servicios_Confidencial.docx (2.8 MB)</span>
+</div>
+<div class="pl-7 space-y-0.5 text-on-surface-variant">
+<div>├── Cliente identificado: <span class="text-white font-medium">Innova Logistics S.L.</span> (ID: <span class="text-primary">CLI-7719</span>)</div>
+<div>├── Expediente vinculado: <span class="text-slate-400">Sin número</span> (<span class="text-cyan-400 font-medium">Nuevo expediente auto-creado: EXP-2025-0104-CORP</span>)</div>
+<div>├── Tipo de documento detectado: <span class="text-white">Acuerdo de Confidencialidad y NDA Bilateral</span></div>
+<div>└── Nivel de confianza IA: <span class="text-[#34d399] font-semibold">97.8%</span></div>
+</div>
+</div>
+<!-- Warning line -->
+<div class="py-1 px-2.5 rounded bg-amber-500/10 border border-amber-500/20 text-amber-300 flex items-start gap-1.5">
+<span class="text-white/40">[16:23:17]</span>
+<span class="material-symbols-outlined text-sm text-amber-400 mt-0.5">warning</span>
+<span>[WARN] Folio_Resolucion_Tribunal_Notif_639.pdf -&gt; Folio escaneado con baja resolución (150 DPI). Aplicando filtro super-resolución por IA... OCR completado con 92.1% confianza.</span>
+</div>
+<!-- Success 3 -->
+<div class="pt-1">
+<div class="text-[#34d399] font-medium flex items-center gap-1.5">
+<span class="text-white/40">[16:23:18]</span>
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>[OK] Poder_Notarial_Apostillado_2024.pdf -&gt; Cliente: <span class="text-white">Banco Santander</span> (ID: CLI-1002) | Exp: <span class="text-cyan-400">EXP-2023-4512-NOT</span> | Tipo: <span class="text-white">Poder General para Pleitos y Cobranzas</span> | <span class="text-[#34d399] font-semibold">98.9% Confianza</span></span>
+</div>
+</div>
+<!-- Success Completion -->
+<div class="pt-2 text-cyan-300 font-medium flex items-center gap-1.5">
+<span class="text-white/40">[16:23:19]</span>
+<span class="material-symbols-outlined text-sm text-cyan-400">verified</span>
+<span class="text-emerald-400 font-semibold">[SUCCESS] Lote finalizado con éxito. 5 documentos indexados en el repositorio central.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Batch Summary Inspection Data Table -->
+<div class="w-full flex flex-col bg-surface-variant border border-white/10 rounded-xl shadow-lg overflow-hidden">
+<div class="px-space-lg py-space-md flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm bg-surface-variant border-b border-white/10">
+<div>
+<h3 class="font-headline-md text-headline-md text-white">Documentos Ingeridos en este Lote</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Inspección rápida de mapeos y vinculación de expedientes automatizada</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-mono-code text-label-sm text-on-surface-variant">5 de 5 verificados</span>
+<button class="p-1.5 text-on-surface-variant hover:text-white rounded-lg hover:bg-white/10 transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider border-b border-white/10">
+<th class="py-3 px-space-md">Documento Fuente</th>
+<th class="py-3 px-space-md">Cliente Auto-identificado</th>
+<th class="py-3 px-space-md">Expediente Vinculado</th>
+<th class="py-3 px-space-md">Clasificación IA</th>
+<th class="py-3 px-space-md text-center">Confianza</th>
+<th class="py-3 px-space-md text-right">Acción</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5 font-body-md text-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-white/[0.03] transition-colors">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-9 h-9 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-xl">picture_as_pdf</span>
+</span>
+<div class="min-w-0">
+<span class="font-medium text-white block truncate max-w-xs">Actividad03-1RA EVA-FBD-ISC.pdf</span>
+<span class="font-mono-code text-body-sm text-outline">14.2 MB • 32 Fojas</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="font-medium text-white">TechCorp Iberoamérica S.A.</span>
+<span class="block font-mono-code text-body-sm text-outline">CLI-9402</span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1 font-mono-code text-label-md font-semibold text-primary hover:underline cursor-pointer">
+                EXP-2024-8841-CIV
+                <span class="material-symbols-outlined text-xs">open_in_new</span>
+</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant">Juzg. 3ro Civil</span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-block px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-white font-label-sm text-label-sm">
+                Demanda Mercantil
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-mono-code text-label-sm font-semibold">
+                99.4%
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<button class="inline-flex items-center gap-1 text-primary hover:text-white font-label-md text-label-md font-semibold p-1.5 rounded hover:bg-white/5 transition-colors" type="button">
+<span>Revisar</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/[0.03] transition-colors">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-xl">description</span>
+</span>
+<div class="min-w-0">
+<span class="font-medium text-white block truncate max-w-xs">Contrato_Prestacion_Servicios_Confidencial.docx</span>
+<span class="font-mono-code text-body-sm text-outline">2.8 MB • 14 Cláusulas</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="font-medium text-white">Innova Logistics S.L.</span>
+<span class="block font-mono-code text-body-sm text-outline">CLI-7719</span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1 font-mono-code text-label-md font-semibold text-emerald-400 hover:underline cursor-pointer">
+                EXP-2025-0104-CORP
+                <span class="material-symbols-outlined text-xs">fiber_new</span>
+</span>
+<span class="block font-body-sm text-body-sm text-emerald-400/80 font-medium">Auto-creado por IA</span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-block px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-white font-label-sm text-label-sm">
+                NDA Bilateral / Confidencial
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-mono-code text-label-sm font-semibold">
+                97.8%
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<button class="inline-flex items-center gap-1 text-primary hover:text-white font-label-md text-label-md font-semibold p-1.5 rounded hover:bg-white/5 transition-colors" type="button">
+<span>Revisar</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/[0.03] transition-colors">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-9 h-9 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-xl">picture_as_pdf</span>
+</span>
+<div class="min-w-0">
+<span class="font-medium text-white block truncate max-w-xs">Folio_Resolucion_Tribunal_Notif_639.pdf</span>
+<span class="font-mono-code text-body-sm text-outline">8.1 MB • Super-Res Aplicado</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="font-medium text-white">Consorcio Vías del Norte</span>
+<span class="block font-mono-code text-body-sm text-outline">CLI-3349</span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1 font-mono-code text-label-md font-semibold text-primary hover:underline cursor-pointer">
+                EXP-2023-1102-ADM
+                <span class="material-symbols-outlined text-xs">open_in_new</span>
+</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant">Tribunal Colegiado</span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-block px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-white font-label-sm text-label-sm">
+                Notificación de Resolución
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-red-500/10 border border-red-500/25 text-red-400 font-mono-code text-label-sm font-semibold">
+                92.1%
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<button class="inline-flex items-center gap-1 text-primary hover:text-white font-label-md text-label-md font-semibold p-1.5 rounded hover:bg-white/5 transition-colors" type="button">
+<span>Revisar</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-white/[0.03] transition-colors">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-9 h-9 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-xl">picture_as_pdf</span>
+</span>
+<div class="min-w-0">
+<span class="font-medium text-white block truncate max-w-xs">Poder_Notarial_Apostillado_2024.pdf</span>
+<span class="font-mono-code text-body-sm text-outline">5.4 MB • 6 Fojas Protocolizadas</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="font-medium text-white">Banco Santander</span>
+<span class="block font-mono-code text-body-sm text-outline">CLI-1002</span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1 font-mono-code text-label-md font-semibold text-primary hover:underline cursor-pointer">
+                EXP-2023-4512-NOT
+                <span class="material-symbols-outlined text-xs">open_in_new</span>
+</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant">Notaría Pública 42</span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-block px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-white font-label-sm text-label-sm">
+                Poder Pleitos y Cobranzas
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-mono-code text-label-sm font-semibold">
+                98.9%
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<button class="inline-flex items-center gap-1 text-primary hover:text-white font-label-md text-label-md font-semibold p-1.5 rounded hover:bg-white/5 transition-colors" type="button">
+<span>Revisar</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-white/[0.03] transition-colors">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-xl">image</span>
+</span>
+<div class="min-w-0">
+<span class="font-medium text-white block truncate max-w-xs">Comprobante_Pago_Aranceles_Judiciales.png</span>
+<span class="font-mono-code text-body-sm text-outline">1.2 MB • Recibo Tributario</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="font-medium text-white">TechCorp Iberoamérica S.A.</span>
+<span class="block font-mono-code text-body-sm text-outline">CLI-9402</span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center gap-1 font-mono-code text-label-md font-semibold text-primary hover:underline cursor-pointer">
+                EXP-2024-8841-CIV
+                <span class="material-symbols-outlined text-xs">open_in_new</span>
+</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant">Anexo Cuaderno Principal</span>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-block px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-white font-label-sm text-label-sm">
+                Comprobante Arancelario
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-mono-code text-label-sm font-semibold">
+                99.8%
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<button class="inline-flex items-center gap-1 text-primary hover:text-white font-label-md text-label-md font-semibold p-1.5 rounded hover:bg-white/5 transition-colors" type="button">
+<span>Revisar</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Pagination / Quick Batch Actions -->
+<div class="px-space-lg py-space-sm bg-surface-variant border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<span class="font-mono-code text-body-sm text-outline">Mostrando 5 de 5 elementos procesados en este lote</span>
+<div class="flex items-center gap-space-xs">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-white/10 text-white hover:bg-surface-container-highest font-label-md text-label-md transition-colors" type="button">
+          Vincular Todo a Repositorio
+        </button>
+<button class="px-3 py-1.5 rounded-lg bg-primary-container text-white hover:bg-primary font-label-md text-label-md transition-colors shadow-md shadow-primary/20 border border-primary/40" type="button">
+          Aprobar Lote en Firme
+        </button>
+</div>
+</div>
+</div>
+</div></main></div></body></html>
